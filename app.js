@@ -1,17 +1,17 @@
 /** IMPORTS */
 const express = require ('express');
+const cors = require('cors');
 
 /** ROUTERS IMPORTS */
-const candidatesRouter = require('./src/routes/candidates');
-const degreesRouter = require('./src/routes/degrees');
+const apiRouter = require('./src/routes/api');
 
 /** CONFIG */
 const app = express();
 app.use(express.json());
+app.use(cors());
 
 /** ROUTERS CONFIG */
-app.use('/candidates', candidatesRouter);
-app.use('/degrees', degreesRouter);
+app.use(apiRouter);
 
 /** PORT CONFIG */
 app.listen(3000, () => {
